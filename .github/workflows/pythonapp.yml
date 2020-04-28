@@ -35,10 +35,11 @@ jobs:
         pip install pytest
         pip install pytest-cov
         pytest --cov=./ --cov-report=xml
+
     - name: Upload coverage to Codecov  
-      uses: codecov/codecov-action@v1
+      uses: codecov/learning@v1
       with:
-        token: "7984b2de9bf4c852288f1e30d86d1b6d039f55dda5220d677364ee45d79005a6"
+        token: 7984b2de9bf4c852288f1e30d86d1b6d039f55dda5220d677364ee45d79005a6
         file: ./coverage.xml
         flags: unittests
         name: codecov-umbrella
