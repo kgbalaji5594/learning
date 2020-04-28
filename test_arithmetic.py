@@ -10,5 +10,8 @@ class SimpleTest(unittest.TestCase):
     def test_multiply(self):
         self.assertEqual(learning.arithmetic.multiply(5, 5), 25)
 
+    def test_sub(self):
+        self.assertEqual(learning.arithmetic.sub(5, 5), 0)
+
 if __name__ == '__main__':
     unittest.main()
