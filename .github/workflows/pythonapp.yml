@@ -51,4 +51,4 @@ jobs:
         codeclimate-test-reporter-version: latest # optional, default is latest
         # Test reporter download URL. If supplied, it will override the version  input.
     
-        command: afte-build # optional, default is after-build
+        command: after-build # optional, default is after-build
