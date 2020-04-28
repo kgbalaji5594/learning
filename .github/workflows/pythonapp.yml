@@ -30,13 +30,16 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
-    - name: Test with pytest
+    - name: Generate coverage report
       run: |
         pip install pytest
-        pytest
-
-    - name: Coverage to Codeclimate
-      uses: MartinNuc/codeclimate-action@2
-      env:
-        CC_TEST_REPORTER_ID: 7984b2de9bf4c852288f1e30d86d1b6d039f55dda5220d677364ee45d79005a6
+        pip install pytest-cov
+        pytest --cov=./ --cov-report=xml
+    - name: Upload coverage to Codecov  
+      uses: codecov/codecov-action@v1
+      with:
+        token: 7984b2de9bf4c852288f1e30d86d1b6d039f55dda5220d677364ee45d79005a6
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: true
